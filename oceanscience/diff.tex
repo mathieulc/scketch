@@ -1,7 +1,7 @@
 %% Copernicus Publications Manuscript Preparation Template for LaTeX Submissions
 %DIF LATEXDIFF DIFFERENCE FILE
 %DIF DEL old_mainos.tex   Thu Feb 13 15:11:08 2020
-%DIF ADD mainos.tex       Mon Feb 17 18:43:39 2020
+%DIF ADD mainos.tex       Tue Feb 18 16:26:05 2020
 %% ---------------------------------
 %% This template should be used for copernicus.cls
 %% The class file and some style files are bundled in the Copernicus Latex Package, which can be downloaded from the different journal webpages.
@@ -161,7 +161,7 @@ The aim of this paper is to investigate the dynamics of the SPG by analysing the
 \section{Model and set-up}
 To investigate the impact of the topography on the circulation, it is essential to have a good representation of the flow-topography interactions. To do so, we use a terrain-following coordinate model: the Regional Oceanic Modelling System (ROMS, \citet{shchepetkin2009}) in its CROCO (Coastal and Regional Ocean Community) version \citep{debreu2012}. It solves the hydrostatic primitive equations for velocity, temperature and salinity, using a full equation of state for seawater \citep{shchepetkin2009,shchepetkin2011}. 
 
-To achieve a kilometric resolution at a reasonable cost, we use a one way nesting approach by defining two successive horizontal grids with resolutions $\Delta x \approx 6$ km for the parent grid covering the North Atlantic ocean (NATL) and $\Delta x \approx 2$ km for the child grid covering the SPG (POLGYR). The parent North Atlantic domain is identical to the one in \cite{renault2016}. It has 1152 $\times$ 1059 points  with a horizontal resolution of 6---7 km. The child grid has 2000 $\times$ 1600 points and a horizontal resolution of 2 km. It allows the simulation to be truly eddy resolving in most of the area, as the \DIFaddbegin \DIFadd{first }\DIFaddend Rossby deformation radius \DIFdelbegin \DIFdel{varies between 10 and 20 km over }\DIFdelend \DIFaddbegin \DIFadd{has trouble exceeding 10-km over most of }\DIFaddend the region \citep{chelton1998}. The domains are shown in figure \ref{f01}. 
+To achieve a kilometric resolution at a reasonable cost, we use a one way nesting approach by defining two successive horizontal grids with resolutions $\Delta x \approx 6$ km for the parent grid covering the North Atlantic ocean (NATL) and $\Delta x \approx 2$ km for the child grid covering the SPG (POLGYR). The parent North Atlantic domain is identical to the one in \cite{renault2016}. It has 1152 $\times$ 1059 points  with a horizontal resolution of 6---7 km. The child grid has 2000 $\times$ 1600 points and a horizontal resolution of 2 km. It allows the simulation to be truly eddy resolving in most of the area, as the \DIFaddbegin \DIFadd{first }\DIFaddend Rossby deformation radius \DIFdelbegin \DIFdel{varies between 10 and 20 km over }\DIFdelend \DIFaddbegin \DIFadd{remains below 10-km over most of }\DIFaddend the region \citep{chelton1998}. The domains are shown in figure \ref{f01}. 
 
 %DIF > varies between 10 and 20 km
 \DIFaddbegin 
@@ -185,7 +185,7 @@ Initial and lateral boundary data for the largest domain are taken from the Simp
 
 The North Atlantic and subpolar gyre simulations have 50 and 80 vertical levels, respectively. Vertical levels are stretched at the surface and bottom \citep{lemarie2012} to have a better representation of the surface layer dynamics at the top and flow-topography interactions at the bottom. The depth of the transition between flat z levels and terrain-following $\sigma$ levels is $h_{cline} = 300$ m. The two parameters controlling the bottom and surface refinement of the grid are $\sigma _b=2$, $\sigma _s=7$ for the parent grid and $\sigma _b=3$, $\sigma _s=6$ for the child grid, corresponding to strongly stretched levels at the surface and bottom (\DIFdelbegin \DIFdel{Figure }\DIFdelend \DIFaddbegin \DIFadd{Fig. }\DIFaddend \ref{f02}).
 
-The vertical mixing of tracers and momentum is done by a k-$\epsilon$ model (GLS, \citet{umlauf2003}). The effect of bottom friction is parameterized through a logarithmic law of the wall with a roughness length $Z_{0} = 0.01$ m. \DIFaddbegin \DIFadd{We use no explicit viscosity or diffusivity as the numerical scheme induces sufficient duffusion. 
+The vertical mixing of tracers and momentum is done by a k-$\epsilon$ model (GLS, \citet{umlauf2003}). The effect of bottom friction is parameterized through a logarithmic law of the wall with a roughness length $Z_{0} = 0.01$ m. \DIFaddbegin \DIFadd{We use no explicit viscosity or diffusivity as the numerical scheme induces sufficient diffusion. 
 }\DIFaddend 
 
 
@@ -260,7 +260,7 @@ formulation:
 \section{Vorticity balance of the subpolar gyre at high resolution}
 \subsection{An overall view of the subpolar gyre vorticity balance}
 
-\DIFdelbegin \DIFdel{The barotropic vorticity equation is obtained by integrating the momentum equations in the vertical and }\DIFdelend \DIFaddbegin \DIFadd{Two barotropic vorticity equations can be obtained depending on the choice of vertically integrating or averaging the momentum equations before }\DIFaddend cross-differentiating \DIFdelbegin \DIFdel{them }\DIFdelend \DIFaddbegin \DIFadd{them. The vertical averaging method allows to define the main components driving the flow across f/h contours. On the other hand, the vertically integrated momentum equations give more informations on what is driving the barotropic flow. This last definition will be used in the following and can be written as }\DIFaddend \citep{gula2015}:
+\DIFdelbegin \DIFdel{The barotropic vorticity equation is obtained by integrating the momentum equations in the vertical and }\DIFdelend \DIFaddbegin \DIFadd{Two barotropic vorticity equations can be obtained depending on the choice of vertically integrating or averaging the momentum equations before }\DIFaddend cross-differentiating \DIFdelbegin \DIFdel{them }\DIFdelend \DIFaddbegin \DIFadd{them. The vertical averaging method allow to define the main components driving the flow across f/h contours. On the other hand, the vertically integrated momentum equations gives more informations on what is driving the barotropic flow. This last definition will be used in the following and can be written as }\DIFaddend \citep{gula2015}:
 
 \begin{equation}
 \underbrace{\frac{\partial \Omega}{\partial t}}_{rate} = -\underbrace{\mathbf{\nabla}.(f \mathbf{\overline{u}})}_{planet.\;vort.\;adv}+\underbrace{\frac{J(P_b,h)}{\rho _0}}_{BPT} +\underbrace{\mathbf{k}.\mathbf{\nabla} \times \frac{\mathbf{\tau} _{wind}}{\rho_{0}}}_{wind\;curl} -\underbrace{\mathbf{k} \cdot \mathbf{\nabla} \times \frac{\mathbf{\tau} _{bot}}{\rho_{0}}}_{BDC} +\underbrace{D_{\Sigma}}_{horiz.\;diffusion}+\underbrace{A_{\Sigma}}_{NLA}
@@ -453,7 +453,7 @@ The $\varepsilon$ part is the residue of the cross product and its value is negl
 
 When integrated over the slope area (Fig. \ref{f13}), the eddy component dominates over the mean one. In the interior area, the supply of barotropic vorticity is also mainly due to the eddy component but the mean component contributes about a third of the total. Almost all of this mean signal is coming from the \DIFdelbegin \DIFdel{North West }\DIFdelend \DIFaddbegin \DIFadd{Northwest }\DIFaddend corner, consistent with \citet{wang2017}, while the eddy part is dominant over the rest of the interior. 
 
-We can identify several processes providing cyclonic barotropic vorticity to the subpolar gyre. The most important is the eddy contribution coming from the boundary area that is associated with a barotropic contribution. Barotropic vorticity is also provided through a mean-baroclinic signal coming from the NWC. \DIFaddbegin \DIFadd{Even though the NWC is not strictly speaking inside the subpolar gyre and do not provide net vorticity flux to the gyre interior, its presence is essential to prevent water masses drift which can impact the gyre dynamics. }\DIFaddend In comparison, in the lower resolution simulation (not shown) most of the vorticity is advected inside the gyre by mean-barotropic processes but the amplitude of the NL term is cut by half.
+We can identify several processes providing cyclonic barotropic vorticity to the subpolar gyre. The most important is the eddy contribution coming from the boundary area that is associated with a barotropic contribution. Barotropic vorticity is also provided through a mean-baroclinic signal coming from the NWC. \DIFaddbegin \DIFadd{Our definition of the subpolar gyre, based on a barotropic streamfunction contour, includes a part of the NWC which is a complex transition region between the subtropical and the subpolar gyre. }\DIFaddend In comparison, in the lower resolution simulation (not shown) most of the vorticity is advected inside the gyre by mean-barotropic processes but the amplitude of the NL term is cut by half.
 
 
 \conclusions[Summary and Conclusions]

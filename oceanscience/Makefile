@@ -1,6 +1,6 @@
 .PHONY: all viewpdf pdf clean
 
-TARGET       = mainos#diff#
+TARGET       = diff#mainos#diff#
 SOURCE_FILES = $(TARGET).tex 
 BIB_FILES    = $(wildcard vort_240419.bib)
 FIGURES      = $(wildcard ../fig_os/*)
