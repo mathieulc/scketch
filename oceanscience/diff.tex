@@ -1,7 +1,7 @@
 %% Copernicus Publications Manuscript Preparation Template for LaTeX Submissions
 %DIF LATEXDIFF DIFFERENCE FILE
-%DIF DEL old_mainos.tex   Thu Feb 13 15:11:08 2020
-%DIF ADD mainos.tex       Thu Feb 20 11:44:17 2020
+%DIF DEL old_mainos.tex            Thu Feb 13 15:11:08 2020
+%DIF ADD os-2019-114-texfile.tex   Tue Mar 10 08:36:33 2020
 %% ---------------------------------
 %% This template should be used for copernicus.cls
 %% The class file and some style files are bundled in the Copernicus Latex Package, which can be downloaded from the different journal webpages.
@@ -156,13 +156,17 @@ Recently, \citet{sonnewald2019} clustered regions dominated by different barotro
 
 In addition to the horizontal resolution, the representation of the bottom topography has an impact on the structure of the flow. z-level coordinates have the tendency to create too shallow flows compared to partial step coordinates \citep{pacanowski1998}. Terrain following coordinates ($\sigma$-level) have proven effective in representing boundary currents \citep{schoonover2016,ezer2016}. The z-level types coordinates tend to have too much viscosity and/or diffusivity close to the topography due to the presence of vertical walls. This effect is corrected when increasing the vertical resolution or using partial steps to converge to results obtained with $\sigma$-coordinates \citep{ezer2004}.
 
-The aim of this paper is to investigate the dynamics of the SPG by analysing the barotropic vorticity balance in a truly eddy-resolving $\sigma$-level coordinate model. To our knowledge no study of the SPG dynamics has ever been conducted at this resolution with this kind of vertical coordinate. The switch in vertical coordinate combined with eddy-resolving resolution \DIFdelbegin \DIFdel{might help to resolve smaller scale processes and allow a better representation of }\DIFdelend \DIFaddbegin \DIFadd{will allow to resolve more non-linear processes and to better represent the }\DIFaddend flow-topography interactions overall\DIFaddbegin \DIFadd{, which are believed to be two essential ingredients for the circulation of the SPG}\DIFaddend .  The paper is organised as follows: The simulation setup is presented in section 2. The mean currents characteristics and variability in the simulation are compared to observations in section 3. The barotropic vorticity balance is analyzed for the full SPG in section 4. The balances corresponding to the different parts of the gyre are further described in section 5. To better understand what is hidden inside the non linear term we analyze it more in detail in section 6. Conclusions are presented and discussed in section 7.  
+The aim of this paper is to investigate the dynamics of the SPG by analysing the barotropic vorticity balance in a truly eddy-resolving $\sigma$-level coordinate model. To our knowledge no study of the SPG dynamics has ever been conducted at this resolution with this kind of vertical coordinate. The switch in vertical coordinate combined with eddy-resolving resolution \DIFdelbegin \DIFdel{might help to resolve smaller scale processes and allow a better representation of }\DIFdelend \DIFaddbegin \DIFadd{will allow  the model to resolve more non-linear processes and to better represent the }\DIFaddend flow-topography interactions overall\DIFaddbegin \DIFadd{, which are believed to be two essential ingredients for the circulation of the SPG}\DIFaddend .  The paper is organised as follows: The simulation setup is presented in section 2. The mean currents characteristics and variability in the simulation are compared to observations in section 3. The barotropic vorticity balance is analyzed for the full SPG in section 4. The balances corresponding to the different parts of the gyre are further described in section 5. To better understand what is hidden inside the non linear term we analyze it more in detail in section 6. Conclusions are presented and discussed in section 7.  
 
 %DIF >  do modfication here
 \DIFaddbegin 
 
 \DIFaddend \section{Model and set-up}
-To investigate the impact of the topography on the circulation, it is essential to have a good representation of the flow-topography interactions. To do so, we use a terrain-following coordinate model: the Regional Oceanic Modelling System (ROMS, \citet{shchepetkin2009}) in its CROCO (Coastal and Regional Ocean Community) version \citep{debreu2012}. It solves the hydrostatic primitive equations for velocity, temperature and salinity, using a full equation of state for seawater \citep{shchepetkin2009,shchepetkin2011}. 
+To investigate the impact of the topography on the circulation, it is essential to have a good representation of the flow-topography interactions. To do so, we use a terrain-following coordinate model: the Regional Oceanic Modelling System (ROMS, \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\citet{shchepetkin2009}}%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\citet{shchepetkin2005}}%DIFAUXCMD
+}\DIFaddend ) in its CROCO (Coastal and Regional Ocean Community) version \citep{debreu2012}. It solves the hydrostatic primitive equations for velocity, temperature and salinity, using a full equation of state for seawater \citep{shchepetkin2009,shchepetkin2011}. 
 
 To achieve a kilometric resolution at a reasonable cost, we use a one way nesting approach by defining two successive horizontal grids with resolutions $\Delta x \approx 6$ km for the parent grid covering the North Atlantic ocean (NATL) and $\Delta x \approx 2$ km for the child grid covering the SPG (POLGYR). The parent North Atlantic domain is identical to the one in \cite{renault2016}. It has 1152 $\times$ 1059 points  with a horizontal resolution of 6---7 km. The child grid has 2000 $\times$ 1600 points and a horizontal resolution of 2 km. It allows the simulation to be truly eddy resolving in most of the area, as the \DIFaddbegin \DIFadd{first }\DIFaddend Rossby deformation radius \DIFdelbegin \DIFdel{varies between 10 and 20 km over }\DIFdelend \DIFaddbegin \DIFadd{remains below 10-km over most of }\DIFaddend the region \citep{chelton1998}. The domains are shown in figure \ref{f01}. 
 
@@ -170,18 +174,22 @@ To achieve a kilometric resolution at a reasonable cost, we use a one way nestin
 \DIFaddbegin 
 
 \DIFaddend \begin{figure}[t]
-\includegraphics[width=10cm]{../fig_os/f01.pdf}
-\caption{Snapshot of the relative vorticity at 500 m depth in the North Atlantic in the NATL simulation. The NATL grid ($\Delta x \approx 6$ km) covers most the North Atlantic, and the POLGYR grid (smaller rectangle, $\Delta x \approx 2$ km) covers the subpolar gyre.}
+\DIFdelbeginFL %DIFDELCMD < \includegraphics[width=10cm]{../fig_os/f01.pdf}
+%DIFDELCMD < %%%
+\DIFdelendFL \DIFaddbeginFL \includegraphics[width=10cm]{./os-2019-114-fig/f01.pdf}
+\DIFaddendFL \caption{Snapshot of the relative vorticity at 500 m depth in the North Atlantic in the NATL simulation. The NATL grid ($\Delta x \approx 6$ km) covers most the North Atlantic, and the POLGYR grid (smaller rectangle, $\Delta x \approx 2$ km) covers the subpolar gyre.}
 \label{f01}
 \end{figure} 
 
 The bathymetry for both domains is constructed from the SRTM30 PLUS dataset (available online at \url{http://topex.ucsd.edu/WWW_html/srtm30_plus.html}) based on the 1 min \cite{sandwell1997} global dataset and higher resolution data where available. A Gaussian smoothing kernel with a width 4 times the topographic grid spacing is used to avoid aliasing whenever the topographic data are available at higher resolution than the computational grid and to ensure the smoothness of the topography at the grid scale. Also, to avoid pressure gradient errors induced by terrain-following coordinates in shallow regions with steep bathymetric slopes \citep{beckmann1993}, we locally smooth the bottom topography $h$ to ensure that the steepness of the topography does not exceed a factor $r=0.2$, where the local $r$-factor is defined in the x and y directions by $r_x = \frac{h(i,j)-h(i-1,j)}{h(i,j)+h(i-1,j)}$ and $r_y = \frac{h(i,j)-h(i,j-1)}{h(i,j)+h(i,j-1)}$,  (i,j) representing the grid index.
 
-Initial and lateral boundary data for the largest domain are taken from the Simple Ocean Data Assimilation (SODA, \citet{carton2008}). The NATL simulation is run from January 1st, 1999 to December 31st, 2009. It is spun up for 2 years, and the following 8 years are used to generate boundary conditions for the child grid. Our focus is the barotropic vorticity dynamics, characterized by time scales on the order of months, such that a year of spin up is sufficient for the kinetic energy \DIFaddbegin \DIFadd{(both for barotropic and baroclinic modes) }\DIFaddend to reach a state of quasi-equilibrium in POLGYR (not shown). The study is carried on the 7 remaining years between 2002 and 2009. The surface forcings are daily ERA-INTERIM data for the parent grid and 12-hourly ERA-INTERIM data for the child grid.
+Initial and lateral boundary data for the largest domain are taken from the Simple Ocean Data Assimilation (SODA, \citet{carton2008}). The NATL simulation is run from January 1st, 1999 to December 31st, \DIFdelbegin \DIFdel{2009. }\DIFdelend \DIFaddbegin \DIFadd{2008. }\DIFaddend It is spun up for 2 years, and the following 8 years are used to generate boundary conditions for the child grid. Our focus is the barotropic vorticity dynamics, characterized by time scales on the order of months, such that a year of spin up is sufficient for the kinetic energy \DIFaddbegin \DIFadd{(both for barotropic and baroclinic modes) }\DIFaddend to reach a state of quasi-equilibrium in POLGYR (not shown). The study is carried on the 7 remaining years between 2002 and \DIFdelbegin \DIFdel{2009. }\DIFdelend \DIFaddbegin \DIFadd{2008. }\DIFaddend The surface forcings are daily ERA-INTERIM data for the parent grid and 12-hourly ERA-INTERIM data for the child grid.
 
 \begin{figure}[t]
-\includegraphics[width=8cm]{../fig_os/f02.pdf}
-\caption{Depths of the model vertical $\sigma$-levels along a section in the \DIFdelbeginFL \DIFdelFL{Irminger Basin }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Labrador Sea }\DIFaddendFL for (a) the 6-km simulation (NATL), and (b) the 2-km simulation (POLGYR) \DIFaddbeginFL \DIFaddFL{and (c) the vertical grid spacing with depth along the black line shown in (b)}\DIFaddendFL . }
+\DIFdelbeginFL %DIFDELCMD < \includegraphics[width=8cm]{../fig_os/f02.pdf}
+%DIFDELCMD < %%%
+\DIFdelendFL \DIFaddbeginFL \includegraphics[width=10cm]{./os-2019-114-fig/f02.pdf}
+\DIFaddendFL \caption{Depths of the model vertical $\sigma$-levels along a section in the \DIFdelbeginFL \DIFdelFL{Irminger Basin }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Labrador Sea }\DIFaddendFL for (a) the 6-km simulation (NATL), and (b) the 2-km simulation (POLGYR) \DIFaddbeginFL \DIFaddFL{and (c) the vertical grid spacing with depth along the black line shown in (b)}\DIFaddendFL . }
 \label{f02}
 \end{figure} 
 
@@ -199,11 +207,13 @@ Before investigating what is driving the SPG dynamics, we first need to validate
 The North Atlantic Current (NAC) represents a boundary between the subtropical and the subpolar gyres. Oceanic models have difficulties in reproducing its dynamics and particularly its Northern extension known as the \DIFdelbegin \DIFdel{NorthWest }\DIFdelend \DIFaddbegin \DIFadd{Northwest }\DIFaddend Corner \citep{bryan2007,hecht2008,drews2015}, which is centered at 50$^{\circ}$ N, 48 $^{\circ}$ W \citep{lazier1994}. These difficulties lead to the apparition of the so called "cold-bias", which can reach up to 10 $^{\circ}$C \citep{griffies2009, drews2015}, and which plays a role in the Atlantic low frequency variability \citep{drews2017}. The \DIFdelbegin \DIFdel{NorthWest }\DIFdelend \DIFaddbegin \DIFadd{Northwest }\DIFaddend Corner is well reproduced in our simulations, and the temperature bias at this location is less than a degree.
 
 
-After turning eastward, the NAC splits into three branches, which are strongly constrained by topography \citep{bower2008}. They cross the Mid Atlantic Ridge (MAR) through three deep fracture zones: the Charlie-Gibbs Fracture Zone (CGFZ, 52.5 $^{\circ}$ N), the Faraday fracture zone (50$^{\circ}$ N) and the Maxwell fracture zone (48$^{\circ}$ N) \citep{bower2002}. In both surface and 1000 m observations (Fig. \ref{f03}(e),(f)), the Northern branch of the NAC is more intense and corresponds to the main pathway across the MAR. The three branches are well represented in the simulations with, at the surface, an overestimation of the southern branch and an underestimation of the northern branch. At depth, ANDRO data depict an intense branch crossing the MAR at the CGFZ while the amplitude of the two Southern branches is smaller. This feature might be related to the Labrador Sea Water passing into the Eastern Basin through the CGFZ in this depth range, while in the Faraday and Maxwell Fracture zones the flow is more surface intensified. The circulation in POLGYR is closer to the observations with a better representation of the flow in the CGFZ at 1000 m. 
+After turning eastward, the NAC splits into three branches, which are strongly constrained by topography \citep{bower2008}. They cross the Mid Atlantic Ridge (MAR) through three deep fracture zones: the Charlie-Gibbs Fracture Zone (CGFZ, 52.5 $^{\circ}$ N), the Faraday fracture zone (50$^{\circ}$ N) and the Maxwell fracture zone (48$^{\circ}$ N) \citep{bower2002}. In both surface and \DIFdelbegin \DIFdel{1000 m }\DIFdelend \DIFaddbegin \DIFadd{1000-m }\DIFaddend observations (Fig. \ref{f03}(e),(f)), the Northern branch of the NAC is more intense and corresponds to the main pathway across the MAR. The three branches are well represented in the simulations with, at the surface, an overestimation of the southern branch and an underestimation of the northern branch. At depth, ANDRO data depict an intense branch crossing the MAR at the CGFZ while the amplitude of the two Southern branches is smaller. This feature might be related to the Labrador Sea Water passing into the Eastern Basin through the CGFZ in this depth range, while in the Faraday and Maxwell Fracture zones the flow is more surface intensified. The circulation in POLGYR is closer to the observations with a better representation of the flow in the CGFZ at \DIFdelbegin \DIFdel{1000 m}\DIFdelend \DIFaddbegin \DIFadd{1000-m}\DIFaddend . 
 
 \begin{figure*}[t]
-\includegraphics[width=15cm]{../fig_os/f03.pdf}
-\caption{Mean velocity averaged over 2002-2008 at the surface (left) and 1000-m (right) in NATL (a,b), POLGYR (c,d) and observations, NOAA drifters and ANDRO (e,f).}
+\DIFdelbeginFL %DIFDELCMD < \includegraphics[width=15cm]{../fig_os/f03.pdf}
+%DIFDELCMD < %%%
+\DIFdelendFL \DIFaddbeginFL \includegraphics[width=15cm]{./os-2019-114-fig/f03.pdf}
+\DIFaddendFL \caption{Mean velocity averaged over 2002-2008 at the surface (left) and 1000-m (right) in NATL (a,b), POLGYR (c,d) and observations, NOAA drifters and ANDRO (e,f).}
 \label{f03}
 \end{figure*}
 
@@ -218,8 +228,10 @@ At 1000-m depth, Argo floats reveal a continuous current following the Eastern R
 The mean subpolar gyre intensity in the model (Fig. \ref{f04}), computed as the cumulative transport from Iceland to 53.15$^{\circ}$ N along the crest of the RR, is equal to -25 Sv and compares well with the -21.9 $\pm$ 2.5 Sv monthly average in \citet{petit2018}.  
 
 \begin{figure}[t]
-\includegraphics[width=8cm]{../fig_os/f04.pdf}
-\caption{Time mean barotropic stream function over 2002-2008}
+\DIFdelbeginFL %DIFDELCMD < \includegraphics[width=8cm]{../fig_os/f04.pdf}
+%DIFDELCMD < %%%
+\DIFdelendFL \DIFaddbeginFL \includegraphics[width=8cm]{./os-2019-114-fig/f04.pdf}
+\DIFaddendFL \caption{Time mean barotropic stream function over 2002-2008}
 \label{f04}
 \end{figure}
 
@@ -242,8 +254,10 @@ The mesoscale activity plays a big role in redistributing water masses propertie
 }\DIFaddend . The presence of mesoscale eddies can be inferred by their signatures on the Eddy Kinetic Energy (EKE). From the surface EKE signal extracted from NOAA drifters on a $0.25^{\circ}\times 0.25^{\circ}$ grid (Fig. \ref{f05}(e)), we retrieve the main hot spots described by \citet{flatau2003} in the SPG: the Labrador Sea, the Irminger and Iceland basins. Those signals are mainly due to generation of mesoscale eddies through baroclinic and barotropic instabilities of the boundary currents.
 
 \begin{figure*}[t]
-\includegraphics[width=15cm]{../fig_os/f05.pdf}
-\caption{Mean Surface Eddy Kinetic Energy (left) and Mean Eddy Available Potential Energy between 2002 and 2008 (right) in NATL (a,b), POLGYR (c,d). There are compared with result from the NOAA database (e) and the EAPE Atlas from Roullet$\&$al (f)}
+\DIFdelbeginFL %DIFDELCMD < \includegraphics[width=15cm]{../fig_os/f05.pdf}
+%DIFDELCMD < %%%
+\DIFdelendFL \DIFaddbeginFL \includegraphics[width=15cm]{./os-2019-114-fig/f05.pdf}
+\DIFaddendFL \caption{Mean Surface Eddy Kinetic Energy (left) and Mean Eddy Available Potential Energy between 2002 and 2008 (right) in NATL (a,b), POLGYR (c,d). There are compared with result from the NOAA database (e) and the EAPE Atlas from Roullet$\&$al (f)}
 \label{f05}
 \end{figure*}
 
@@ -258,7 +272,7 @@ formulation:
     \DIFadd{EAPE = - \frac{g}{2\rho _0} \langle z' \rho ' \rangle
 }\end{equation}
 
-\DIFadd{Where $z'$ is the vertical isopycnal displacement, $\rho '$ the density anomaly associated with this displacement and $\langle \bullet\rangle$ is the time average}\DIFaddend . We compare EAPE from the simulations with the atlas of \citet{roullet2014} constructed from Argo data (Fig. \ref{f05}(f)). \DIFaddbegin \DIFadd{The atlas presented here is an update of the original product, which uses virtual density instead of potential density and includes more recent data up to July 2015. }\DIFaddend In NATL (at 6 km resolution) most of the baroclinic activity already seems well resolved. However, observations highlight an EAPE maximum on the western flank of the RR that is missing in NATL, but appears only in POLGYR (at 2 km resolution). On the contrary, strong patches of EAPE are visible along the boundary currents of the western half of the SPG in NATL, but are not visible in observations. Interestingly these patterns weaken in POLGYR, potentially pointing to a change in the vertical structure of the currents at higher resolution. Another factor to take into consideration is the lack of Argo measurements close to the boundaries, which might cause an underestimation of EAPE at these locations.
+\DIFadd{where $z'$ is the vertical isopycnal displacement, $\rho '$ the density anomaly associated with this displacement and $\langle \bullet\rangle$ is the time average}\DIFaddend . We compare EAPE from the simulations with the atlas of \citet{roullet2014} constructed from Argo data (Fig. \ref{f05}(f)). \DIFaddbegin \DIFadd{The atlas presented here is an update of the original product, which uses virtual density instead of potential density and includes more recent data up to July 2015. }\DIFaddend In NATL (at 6 km resolution) most of the baroclinic activity already seems well resolved. However, observations highlight an EAPE maximum on the western flank of the RR that is missing in NATL, but appears only in POLGYR (at 2 km resolution). On the contrary, strong patches of EAPE are visible along the boundary currents of the western half of the SPG in NATL, but are not visible in observations. Interestingly these patterns weaken in POLGYR, potentially pointing to a change in the vertical structure of the currents at higher resolution. Another factor to take into consideration is the lack of Argo measurements close to the boundaries, which might cause an underestimation of EAPE at these locations.
 
 \section{Vorticity balance of the subpolar gyre at high resolution}
 \subsection{An overall view of the subpolar gyre vorticity balance}
@@ -314,24 +328,28 @@ In our simulations, the BPT balances the \DIFdelbegin \DIFdel{advection of vorti
 Both terms exhibit small scales related to topographic features, but with a high degree of cancellation between each other. The sum of the BPT and NL terms (Fig. \ref{f06} (c) is often an order of magnitude smaller than the amplitude of the terms considered individually and exhibits patterns and amplitudes matching the advection of planetary vorticity. This cancellation is also clear in \cite{wang2017}, their Figure 3, where the transport driven by mean flow advection balances the one driven by the BPT, both having amplitudes larger than the wind stress curl-driven transport.
 
 \begin{figure*}[t]
-\includegraphics[width=15cm]{../fig_os/f06.pdf}
-\caption{Time mean (a) bottom pressure torque, (b) non-linear terms, and (c) sum of the two for Eastern Greenland in the 2-km North Atlantic subpolar gyre simulation.}
+\DIFdelbeginFL %DIFDELCMD < \includegraphics[width=15cm]{../fig_os/f06.pdf}
+%DIFDELCMD < %%%
+\DIFdelendFL \DIFaddbeginFL \includegraphics[width=15cm]{./os-2019-114-fig/f06.pdf}
+\DIFaddendFL \caption{Time mean (a) bottom pressure torque, (b) non-linear terms, and (c) sum of the two for Eastern Greenland in the 2-km North Atlantic subpolar gyre simulation.}
 \label{f06}
 \end{figure*} 
 
 To facilitate the interpretation of maps of NL and BPT terms, the impact of small topographic scales has to be reduced by smoothing with a large enough length scale. 
-NL terms in particular are expected to be smoothed out on scales larger than 1-2$^{\circ}$ \citep{hughes2001}. Figure \ref{f07} shows all terms smoothed with a Gaussian kernel of 1$^{\circ}$ radius. Even with such smoothing, the BPT and NL terms are still significantly larger than the corresponding results from the $0.1^{\circ}$ simulation of \citet{yeager2015}. However, their sum $\frac{J(P_b,h)}{\rho _0}+A_{\Sigma}$ (Fig. \ref{f07} (f)) is of the same order of magnitude than the $\beta$V (Fig. \ref{f07} (a)) and the Bottom Drag Curl(BDC, Fig. \ref{f07} (e)). \DIFaddbegin \DIFadd{More precisely, the $\beta$V term balances the sum  $\frac{J(P_b,h)}{\rho _0}+A_{\Sigma}$ over most of the domain, while the BDC locally plays a role in the shallow areas. 
+NL terms in particular are expected to be smoothed out on scales larger than 1-2$^{\circ}$ \citep{hughes2001}. Figure \ref{f07} shows all terms smoothed with a Gaussian kernel of 1$^{\circ}$ radius. Even with such smoothing, the BPT and NL terms are still significantly larger than the corresponding results from the $0.1^{\circ}$ simulation of \citet{yeager2015}. However, their sum $\frac{J(P_b,h)}{\rho _0}+A_{\Sigma}$ (Fig. \ref{f07} (f)) is of the same order of magnitude than the $\beta$V (Fig. \ref{f07} (a)) and the Bottom Drag Curl (BDC, Fig. \ref{f07} (e)). \DIFaddbegin \DIFadd{More precisely, the $\beta$V term balances the sum  $\frac{J(P_b,h)}{\rho _0}+A_{\Sigma}$ over most of the domain, while the BDC locally plays a role in the shallow areas. 
 }\DIFaddend 
 
 \begin{figure*}[t]
-\includegraphics[width=15cm]{../fig_os/f07.pdf}
-\caption{ Time mean of the planetary vorticity (a), bottom pressure torque (b), non linear terms (c), wind stress curl (d), and bottom drag curl (e). As bottom pressure torque and non-linear terms are canceling each other their sum is plotted in (f). The fields have been smoothed using a kernel of 1$^{\circ}$ radius. The blue contour represents the limit of our shelf area and is the -3 Sv barotropic streamline}
+\DIFdelbeginFL %DIFDELCMD < \includegraphics[width=15cm]{../fig_os/f07.pdf}
+%DIFDELCMD < %%%
+\DIFdelendFL \DIFaddbeginFL \includegraphics[width=15cm]{./os-2019-114-fig/f07.pdf}
+\DIFaddendFL \caption{ Time mean of the planetary vorticity (a), bottom pressure torque (b), non linear terms (c), wind stress curl (d), and bottom drag curl (e). As bottom pressure torque and non-linear terms are canceling each other their sum is plotted in (f). The fields have been smoothed using a kernel of 1$^{\circ}$ radius. The blue contour represents the limit of our shelf area and is the -3 Sv barotropic streamline}
 \label{f07}
 \end{figure*} 
 
 The curl of the wind stress in POLGYR has the same pattern and amplitude as in \citet{yeager2015}. It is mostly positive with the strongest signal on the Eastern coast of Greenland. The amplitude of the $\beta$V term is slightly stronger in our model than in coarser resolution simulations. In the simulations of \citet{hughes2001} and \citet{yeager2015}, the patterns of the $\beta$V term seems to indicate much wider currents. Here, the patterns correspond to thinner and more intense currents, closely following the continental slopes, in agreement with the observations.
 
-In our simulations, the amplitude of the viscous torque, due to the \DIFaddbegin \DIFadd{implicit }\DIFaddend horizontal viscosity of the model ($D_{\Sigma}$), is very small \DIFdelbegin \DIFdel{, while }\DIFdelend \DIFaddbegin \DIFadd{compared }\DIFaddend the amplitude of the BDC\DIFdelbegin \DIFdel{is comparable to the $\beta V$}\DIFdelend . This is opposite to the results of the $0.1^{\circ}$ POP simulation of \citet{yeager2015}. In fact, their viscous term is qualitatively similar in pattern to the bottom drag curl in our simulation. The boundary conditions near the topography are quite different in the two models due to the different vertical coordinates. The z-levels coordinates have vertical walls between each level, with parameterized lateral viscosity, which explains the pattern in \citet{yeager2015}. The $\sigma$-levels coordinates have no lateral boundary conditions and friction on the topographic slopes is only parameterized as a bottom drag. The amplitude of the BDC is however stronger in our simulation than the viscous term in \citet{yeager2015} and seems to play \DIFdelbegin \DIFdel{a }\DIFdelend \DIFaddbegin \DIFadd{an }\DIFaddend important role in balancing the BPT and $\beta V$ terms over the shelf and on the upper part of the continental slope along the northern and western boundaries of the gyre.
+In our simulations, the amplitude of the viscous torque, due to the \DIFaddbegin \DIFadd{implicit }\DIFaddend horizontal viscosity of the model ($D_{\Sigma}$), is very small \DIFdelbegin \DIFdel{, while }\DIFdelend \DIFaddbegin \DIFadd{compared with }\DIFaddend the amplitude of the BDC\DIFdelbegin \DIFdel{is comparable to the $\beta V$}\DIFdelend . This is opposite to the results of the $0.1^{\circ}$ POP simulation of \citet{yeager2015}. In fact, their viscous term is qualitatively similar in pattern to the bottom drag curl in our simulation. The boundary conditions near the topography are quite different in the two models due to the different vertical coordinates. The z-levels coordinates have vertical walls between each level, with parameterized lateral viscosity, which explains the pattern in \citet{yeager2015}. The $\sigma$-levels coordinates have no lateral boundary conditions and friction on the topographic slopes is only parameterized as a bottom drag. The amplitude of the BDC is however stronger in our simulation than the viscous term in \citet{yeager2015} and seems to play \DIFdelbegin \DIFdel{a }\DIFdelend \DIFaddbegin \DIFadd{an }\DIFaddend important role in balancing the BPT and $\beta V$ terms over the shelf and on the upper part of the continental slope along the northern and western boundaries of the gyre.
 
 \subsection{Link between barotropic vorticity balance and bottom velocities}
 
@@ -341,8 +359,10 @@ The computation of the BPT in \citet{spence2012} is performed by directly estima
 
 
 \begin{figure*}[t]
-\includegraphics[width=15cm]{../fig_os/f08.pdf}
-\caption{(a) Bottom Pressure Torque, (b) $-fw_b$, (c)$\frac{f}{h} \overline{u_g} \cdot \nabla H$, and (d) $H \cdot JEBAR$ for the 2-km North Atlantic subpolar gyre simulation smoothed with a 25 km Gaussian Kernel .}
+\DIFdelbeginFL %DIFDELCMD < \includegraphics[width=15cm]{../fig_os/f08.pdf}
+%DIFDELCMD < %%%
+\DIFdelendFL \DIFaddbeginFL \includegraphics[width=15cm]{./os-2019-114-fig/f08.pdf}
+\DIFaddendFL \caption{(a) Bottom Pressure Torque, (b) $-fw_b$, (c)$\frac{f}{h} \overline{u_g} \cdot \nabla H$, and (d) $H \cdot JEBAR$ for the 2-km North Atlantic subpolar gyre simulation smoothed with a 25 km Gaussian Kernel .}
 \label{f08}
 \end{figure*} 
 
@@ -360,12 +380,14 @@ Along the continental slopes, on the western and northern part of the gyre, the 
 The maps of the barotropic vorticity terms, with various degrees of smoothing, can help identify the locally dominant terms, but do not enable us to identify the important balances at the gyre scale. Spatial integrations are performed inside different gyre contours (Fig. \ref{f09}) to better understand the main contributions to the circulation of the subpolar gyre. 
 
 \begin{figure*}[t]
-\includegraphics[width=14cm]{../fig_os/f09.pdf}
-\caption{Integration of the barotropic vorticity terms over the SPG including or excluding the shelf area (respectively (a) and (c)). The Subpolar gyre area without the shelf corresponds to the -3 Sv contour. The shelf balance is plotted in (b).}
+\DIFdelbeginFL %DIFDELCMD < \includegraphics[width=14cm]{../fig_os/f09.pdf}
+%DIFDELCMD < %%%
+\DIFdelendFL \DIFaddbeginFL \includegraphics[width=14cm]{./os-2019-114-fig/f09.pdf}
+\DIFaddendFL \caption{Integration of the barotropic vorticity terms over the SPG including or excluding the shelf area (respectively (a) and (c)). The Subpolar gyre area without the shelf corresponds to the -3 Sv contour. The shelf balance is plotted in (b).}
 \label{f09}
 \end{figure*} 
 
-We distinguish the shelf area from the gyre using a contour of barotropic streamfunction of -3 Sv. This contour is chosen because it corresponds to the largest possible closed contour of the barotropic streamfunction. We can check that the term $-\nabla.(f\overline{u}) \approx -\beta$V integrates to zero \DIFdelbegin \DIFdel{over }\DIFdelend \DIFaddbegin \DIFadd{within }\DIFaddend such a contour (Fig. \ref{f09} (c). The shelf thus defined corresponds to an area with a mean depth of 290 meter and is extending from the South of Iceland to Flemish cap (blue area in Fig. \ref{f09} (b)).
+We distinguish the shelf area from the gyre using a contour of barotropic streamfunction of -3 Sv. This contour is chosen because it corresponds to the largest possible closed contour of the barotropic streamfunction. We can check that the term $-\nabla.(f\overline{u}) \approx -\beta$V integrates to zero \DIFdelbegin \DIFdel{over }\DIFdelend \DIFaddbegin \DIFadd{within }\DIFaddend such a contour (Fig. \ref{f09} (c)\DIFaddbegin \DIFadd{)}\DIFaddend . The shelf thus defined corresponds to an area with a mean depth of 290 meter and is extending from the South of Iceland to Flemish cap (blue area in Fig. \ref{f09} (b)).
 
 When integrated inside the -3 Sv contour (which means excluding the shelf area, Fig. \ref{f09} (c)), the main sources for the cyclonic circulation of the gyre are the wind and the BPT. They are balanced by the BDC. The wind input does not contribute much locally (Fig. \ref{f07}), but becomes significant when integrated spatially over the whole gyre. The BPT is the major source of positive vorticity and helps the flow move cyclonically around the gyre. The BDC and NL terms act as sinks of vorticity, but the NL term is much smaller than the BDC. The BDC is very intense where the current flows close to a steep topography, as in the case of the Labrador Current (LC) and the West Greenland Current. 
 
@@ -388,8 +410,10 @@ It is clear from the patterns of the different terms of the barotropic vorticity
 To better understand what drives the interior part of the subpolar gyre, we further divide the domain into an interior and a boundary part, as represented in Fig. \ref{f10}. The two domains are defined using the -3 Sv line as previously, and the 3000 m isobath. What is between the -3 Sv line and the 3000 m isobath is considered as the slope region and the rest is considered as the interior area. The choice of the 3000 m isobath is somehow subjective but the results are not sensitive to the choice of a specific isobath. 
 
 \begin{figure*}[t]
-\includegraphics[width=14cm]{../fig_os/f10.pdf}
-\caption{Integration of the barotropic vorticity terms in the slope area (a, defined between the barotropic streamfunction contour -3 Sv and the 3000-m isobath) and interior (b).}
+\DIFdelbeginFL %DIFDELCMD < \includegraphics[width=14cm]{../fig_os/f10.pdf}
+%DIFDELCMD < %%%
+\DIFdelendFL \DIFaddbeginFL \includegraphics[width=14cm]{./os-2019-114-fig/f10.pdf}
+\DIFaddendFL \caption{Integration of the barotropic vorticity terms in the slope area (a, defined between the barotropic streamfunction contour -3 Sv and the 3000-m isobath) and interior (b).}
 \label{f10}
 \end{figure*} 
 
@@ -404,8 +428,10 @@ The main source of cyclonic vorticity inside the gyre is related to the NL term,
 Several type of regions can be identified by looking at the dominant terms in the barotropic vorticity balance  (Fig. \ref{f11}): The western boundary areas in cyan, which include the Western Labrador Sea (WLS), Eastern Greenland (EG) and Eastern Reykjanes Ridge (ERR); the eastern boundary regions in yellow, which include the Western Greenland (WG), the Western Reykjanes Ridge (ERR) and the eastern part of the Iceland Basin; and the Northwest regions in green, which include the extension of the Denmark Strait and Iceland Scotland overflows, and the northwestern part of the Labrador Sea.
 
 \begin{figure*}[t]
-\includegraphics[width=15cm]{../fig_os/f11.pdf}
-\caption{Barotropic vorticity balance integrated over different parts of the gyre along the slope}
+\DIFdelbeginFL %DIFDELCMD < \includegraphics[width=15cm]{../fig_os/f11.pdf}
+%DIFDELCMD < %%%
+\DIFdelendFL \DIFaddbeginFL \includegraphics[width=15cm]{./os-2019-114-fig/f11.pdf}
+\DIFaddendFL \caption{Barotropic vorticity balance integrated over different parts of the gyre along the slope}
 \label{f11}
 \end{figure*}
 
@@ -416,8 +442,10 @@ Three regions (green in Fig. \ref{f11}) have in common a dominant contribution f
 The dynamics in the extension of the Denmark Strait and Iceland Scotland overflows is a balance between the NL term and BDC, while in the Northwestern Labrador sea, the BDC balances the $\beta$-effect. As the BDC is the main sink of vorticity and only acts locally, no advection of positive vorticity toward the inside of the gyre can come from these locations.
 
 \begin{figure*}[t]
-\includegraphics[width=12cm]{../fig_os/f12.pdf}
-\caption{Vertical section of the mean along-stream current near Iceland shelf (a), Eastern Reykjanes Ridge (b), Denmark Strait (c), Eastern Greenland (d), Northern Labrador Current (e), and Southern Labrador Current (f). Red solid lines and green dashed lines are velocity and \DIFdelbeginFL \DIFdelFL{isopycnal }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{surface referenced potential density }\DIFaddendFL contours, respectively, while the black dashed line is the limit of integration near the shelf. The black contour on the topography map represents the area on which barotropic vorticity terms are integrated}
+\DIFdelbeginFL %DIFDELCMD < \includegraphics[width=12cm]{../fig_os/f12.pdf}
+%DIFDELCMD < %%%
+\DIFdelendFL \DIFaddbeginFL \includegraphics[width=12cm]{./os-2019-114-fig/f12.pdf}
+\DIFaddendFL \caption{Vertical section of the mean along-stream current near Iceland shelf (a), Eastern Reykjanes Ridge (b), Denmark Strait (c), Eastern Greenland (d), Northern Labrador Current (e), and Southern Labrador Current (f). Red solid lines and green dashed lines are velocity and \DIFdelbeginFL \DIFdelFL{isopycnal }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{surface referenced potential density }\DIFaddendFL contours, respectively, while the black dashed line is the limit of integration near the shelf. The black contour on the topography map represents the area on which barotropic vorticity terms are integrated}
 \label{f12}
 \end{figure*} 
 
@@ -440,8 +468,10 @@ We show these terms integrated over the slope area and interior (same as Fig. \r
 
 
 \begin{figure*}[t]
-\includegraphics[width=14cm]{../fig_os/f13.pdf}
-\caption{Integration of the Non linear term in the slope (c,blue) and interior area (c,green) for the mean-eddy decomposition (a)and the barotropic-baroclinic decomposition (b). The hatches are the contribution from the \DIFdelbeginFL \DIFdelFL{North Western }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Northwestern }\DIFaddendFL Corner .}
+\DIFdelbeginFL %DIFDELCMD < \includegraphics[width=14cm]{../fig_os/f13.pdf}
+%DIFDELCMD < %%%
+\DIFdelendFL \DIFaddbeginFL \includegraphics[width=14cm]{./os-2019-114-fig/f13.pdf}
+\DIFaddendFL \caption{Integration of the Non linear term in the slope (c,blue) and interior area (c,green) for the mean-eddy decomposition (a)and the barotropic-baroclinic decomposition (b). The hatches are the contribution from the \DIFdelbeginFL \DIFdelFL{North Western }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Northwestern }\DIFaddendFL Corner .}
 \label{f13}
 \end{figure*} 
 
@@ -517,8 +547,10 @@ M Le Corre is supported by UBO and Région Bretagne through ISblue, Interdiscipl
 
 %\begin{thebibliography}{}
 \bibliographystyle{copernicus}
-\bibliography{vort_240419}
-%\end{thebibliography}
+\DIFdelbegin %DIFDELCMD < \bibliography{vort_240419}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \bibliography{os-2019-114-bib}
+\DIFaddend %\end{thebibliography}
 %\bibitem[AUTHOR(YEAR)]{LABEL1}
 %REFERENCE 1
 %\bibitem[AUTHOR(YEAR)]{LABEL2}
